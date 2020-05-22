@@ -27,6 +27,7 @@
     transition: all 0.3s ease;
   }
 
+  .burger div:hover {     background-color: #48C9B0;   }
 
   nav {
     display: flex;
@@ -58,7 +59,13 @@
   .nav-links li{
     opacity: 0;
   }
-  
+
+  .nav-login {
+    display: flex;
+    position: absolute;
+    right: 16px;
+  }
+ 
   .nav-links a{
     color: rgb(226, 226, 226);
     text-decoration: none;
@@ -66,11 +73,26 @@
     font-size: 14 px;
     font-weight: bold;
   }
+  .nav-links a:hover {     color: #48C9B0;   }
+  .nav-links a:active {     color: rgba(72, 201, 175, 0.5)   }
+
+  .nav-login li {
+    padding: 16px;
+  } 
+
+  .nav-login a {
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 14 px;
+    font-weight: bold;
+  }
+  .nav-login a:active {     color: rgba(72, 201, 175, 0.5)   }
+  .nav-login a:hover {     color: #48C9B0;   }
 
   .nav-active{
     transform: translateX(0%);
   }
-
  
   @keyframes navLinkFade {
     from {
@@ -111,8 +133,11 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+    height: auto;
+    min-height: 25%;
   }
 
+  
   h1 {
     font-size: 36px;
     line-height: 54px;

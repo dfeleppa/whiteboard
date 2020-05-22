@@ -11,8 +11,8 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
   
-  get "/welcome" do
-    erb :welcome
+  get "/index" do
+    erb :index
   end
 
   get "/whiteboard" do
