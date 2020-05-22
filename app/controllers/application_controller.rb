@@ -10,6 +10,10 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
+  
+  get "/welcome" do
+    erb :welcome
+  end
 
   get "/whiteboard" do
     erb :whiteboard
