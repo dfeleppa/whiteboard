@@ -24,7 +24,7 @@
     height: 3px;
     margin: 7px;
     background-color: rgb(226, 226, 226);
-    transition: all 0.3s ease;;
+    /* transition: all 0.3s ease;; */
   }
 
 
@@ -46,7 +46,7 @@
     left: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: #383737;
+    background-color: #292929;
     flex-direction: column;
     align-items: center;
     transform: translateX(-100%);
@@ -58,12 +58,9 @@
   }
   
   .nav-links a{
-    
-    font-family: 'Open Sans', sans-serif;
     color: rgb(226, 226, 226);
-    background-color: ;
     text-decoration: none;
-    letter-spacing 3px;
+    letter-spacing: 3px;
     font-size: 14 px;
     font-weight: bold;
   }
