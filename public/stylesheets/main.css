@@ -82,9 +82,9 @@
     }
   }
 
-  .toggle .line1 { transform: translateY(8px) rotate(-45deg) } 
+  .toggle .line1 { transform: translateY(9px) rotate(-45deg) } 
   .toggle .line2 { opacity: 0; }
-  .toggle .line3 { transform: translateY(-8px) rotate(45deg) }
+  .toggle .line3 { transform: translateY(-9px) rotate(45deg) }
 
   html, body {
     height: 100%;
@@ -119,10 +119,17 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #292929;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+
+  }
+
+  .title-ref {
+    color: rgb(243, 243, 243);
+    font-weight: 1000;
+    border: none;
   }
 
   h3 {
@@ -140,6 +147,7 @@
 
   .content {
     float: left;
+    margin-left: 6px;
     width: 60%; /* 480px / 800px */
   }
 
@@ -159,10 +167,35 @@
     clear: both;
   }
 
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #191818;
+  }
+
+  
   footer.branding {
-    border-top: 2px solid #ccc;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     margin-top: 20px;
-    padding-top: 20px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 14vh;
+    background-color: #191818;
+    color: rgb(83, 83, 83);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    border-top: 1px solid #292929;
+    float: center;
+  }
+
+  .footer-logo{
+    padding: 12px;
   }
 }
 

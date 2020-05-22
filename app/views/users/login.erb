@@ -1,0 +1,45 @@
+<div class="container">
+<link rel="stylesheet" href="/stylesheets/login.css" />
+  <header></header>
+  <div class="col-md-8 col-md-offset-2">
+  
+    <div id="theme-my-login">
+    <h2 class="tml-form__title">
+        Welcome Back
+    </h2>
+
+    <form class="form tml-form" name="loginform" id="loginform" action="/login/" method="post">
+
+                    
+         <div class="form__row">
+            <label class="form__label sr-only" for="user_login">Username</label>
+            <input type="text" name="log" id="user_login" class="form__input input" value="" size="20" placeholder="Username">
+        </div>
+
+        <div class="form__row">
+            <label class="form__label sr-only" for="user_pass">Password</label>
+            <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" autocomplete="off" placeholder="Password">
+        </div>
+
+        <div class="tml-form__footer form__row">
+            <div class="tml-form__remember">
+                <input name="rememberme" type="checkbox" id="rememberme" value="forever" checked="checked">
+                <label class="form__label form__label--inline" for="rememberme">Remember Me</label>
+            </div>
+
+            <input class="tml-form__button button button--block button--purple" type="submit" name="wp-submit" id="wp-submit" value="Log In">
+            <input type="hidden" name="redirect_to" value="https://misfitathletics.com/wp-admin/">
+            <input type="hidden" name="instance" value="">
+            <input type="hidden" name="action" value="login">
+        </div>
+
+        <div class="tml-form__links aligncenter">
+            <h5>Don't have an account?</h5>
+            <p><a href="/users/signup" class="button button--purple">Sign up</a></p>
+        </div>
+    </form>
+</div>
+
+
+  
+</div>
