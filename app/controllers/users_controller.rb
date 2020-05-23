@@ -3,9 +3,15 @@ class UsersController < ApplicationController
         erb :'login'
     end
 
-    # post '/login' do
+    post '/login' do
+        @user = User.find_by(email: params[:email])
+
+        if @user.authenticate(params[:password])
         
-    # end
+        else
+
+        end
+    end
 
     get '/signup' do
         erb :'signup'
