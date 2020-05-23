@@ -1,10 +1,37 @@
 <div class="container">
   <header></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Sign Up</h2>
+    <body>
+   
+    <style>
+    body {
+      background: url(images/coach_junaid.jpg) no-repeat center center fixed ;
+      background-size: cover ;
+      position: relative;
+      width: 100%;
+    }
+    </style>
 
-    <div class="content">
-      <p>Please Create an Account</p>
+</div>
+
+    <h1>Athlete Info</h1>  
+
+    <form class="form-login" name="loginform" id="loginform" action="/login" method="post">
+    
+                    
+    <div class="form-row">
+       <label class="form-label" for="user_login"></label>
+       <input type="text" name="email" id="user_email" class="form-input" value="" size="20" placeholder="Username@email.com">
     </div>
-  </div>
+
+    <div class="form-row">
+      <label class="form-label" for="user_login"></label>
+      <input type="text" name="password" id="user_password" class="form-input" value="" size="20" placeholder="Password">
+    </div>
+
+    <div class="submit-form">
+        <input class="submit-button" type="submit" name="create-user" id="create_user" value="Submit">
+    </div>
+    </form>
+    
+  </body>
 </div>
