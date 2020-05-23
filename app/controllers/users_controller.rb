@@ -20,8 +20,17 @@ class UsersController < ApplicationController
         erb :'signup'
     end 
 
-    get '/users/:id' do
-        "works"
-    end
+    # post '/users' do
+    #     if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    #         @user - User.create(params)
+    #         redirect "/#{@user_id}"
+    #     else
+        
+    #     end
+    # end
+
+    # get '/users/:id' do
+    #     erb :'whiteboard'
+    # end
 
 end
