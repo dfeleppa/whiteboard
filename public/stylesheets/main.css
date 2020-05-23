@@ -153,10 +153,12 @@
     box-sizing: border-box;
     display: block;
     margin-top: 0;
+    align-items: center;
   }
 
   .form-row {
     padding: 12px;
+    align-items: center;
   }
 
   .form-row input{
@@ -165,7 +167,7 @@
     border-radius: 5px;
     padding: 15px;
     height: auto;
-    width: 50%;
+    width: 45%;
     box-sizing: border-box;
     background-color: rgb(232, 240, 254) !important;
     background-image: none !important;
@@ -176,12 +178,18 @@
     width: 500px;
   }
 
+  .submit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .welcome {
     color: #fff;
-    font-weight: 1000;
+    font-weight: 900;
     line-height: 1;
     letter-spacing: 1px;
-    font-size: 40px;
+    font-size: 48px;
     text-align: center;
     margin-block-start: 0.9em;
     margin-block-end: 0.25em;
@@ -193,24 +201,25 @@
   .no-account {
     color: #fff;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    padding: 16px;
+    font-size: 16px;
+    padding: 8px;
+    margin-top: 26px;
   }
 
   .submit-button {
+    margin-top: 6px;
     display: block;
-    max-width: none;
-    width: 50%;
-    float: center;
+    width: 100%;
     background-color: #48C9B0;
     border-color: #48C9B0;
     color: #fff;
     line-height: 1;
     border: 2px solid #555;
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    letter-spacing: .05em;
-    padding: 16px 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 18px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -219,11 +228,14 @@
     box-shadow: 0 0 15px 0 transparent;
     border: 0 none;
     border-radius: 5px;
-    padding: 15px;
     height: auto;
-    width: 50%;
     box-sizing: border-box;
  }
+ .submit-button:hover{
+    background-color: #fff;
+    color: #48C9B0;
+  }
+
 
   h1 {
     font-size: 36px;
