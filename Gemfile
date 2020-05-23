@@ -14,5 +14,6 @@ group :development do
     gem 'pry'
     gem 'tux'
     gem 'sqlite3'
-  end
+    gem 'ripl'
+end
 

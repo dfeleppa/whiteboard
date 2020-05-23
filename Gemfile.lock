@@ -12,6 +12,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    bacon (1.2.0)
+    bacon-bits (0.1.0)
+      bacon (>= 1.1.0)
     bcrypt (3.1.13)
     bond (0.5.1)
     coderay (1.1.2)
@@ -74,10 +77,14 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bacon
+  bacon-bits
   bcrypt
   pry
   rake
   require_all
+  ripl
+  ripl-rack
   shotgun
   sinatra
   sinatra-activerecord

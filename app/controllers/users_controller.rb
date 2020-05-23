@@ -23,15 +23,23 @@ class UsersController < ApplicationController
 
     post '/users' do
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
-            @user - User.create(params)
-            redirect "/#{@user_id}"
+             @user = User.create(params)
+            
+            redirect "/#{@user.id}"
+            
         else
-        
+            redirect '/'
         end
     end
 
-    # get '/users/:id' do
-    #     erb :'whiteboard'
-    # end
+    get '/users/:id' do
+        @user = User.find_by(id: params[:id])
+        erb :'athleteinfo.erb'
+    end
+
+    get '/logout' do
+        session.clear
+        redirect '/'
+    end
 
 end
