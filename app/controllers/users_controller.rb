@@ -9,6 +9,7 @@ class UsersController < ApplicationController
         if @user.authenticate(params[:password])
             
             session[:user_id] = @user.id
+            
             puts session
             redirect "users/#{@user.id}"
         else
@@ -20,14 +21,14 @@ class UsersController < ApplicationController
         erb :'signup'
     end 
 
-    # post '/users' do
-    #     if params[:name] != "" && params[:email] != "" && params[:password] != ""
-    #         @user - User.create(params)
-    #         redirect "/#{@user_id}"
-    #     else
+    post '/users' do
+        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+            @user - User.create(params)
+            redirect "/#{@user_id}"
+        else
         
-    #     end
-    # end
+        end
+    end
 
     # get '/users/:id' do
     #     erb :'whiteboard'
