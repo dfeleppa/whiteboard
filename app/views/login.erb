@@ -1,8 +1,17 @@
 <div class="container">
 <link rel="stylesheet" href="/stylesheets/main.css" />
   <header></header>
+
   <body>
-           
+    <style>
+      body {
+        background: url(images/stone_background.jpg) no-repeat center center fixed ;
+        background-size: cover ;
+        height: 100%;
+        position: relative;
+        width: 100%;
+      }
+      </style>
     <form class="form-login" name="loginform" id="loginform" action="/login" method="post">
     <h2 class="welcome">Welcome Back!</h2>
                     
@@ -17,10 +26,7 @@
     </div>
 
     <div class="login-form_footer">
-        <input class="submit-button" type="submit" name="log-submit" id="log-submit" value="Log In">
-        <input type="hidden" name="redirect_to" value="https://misfitathletics.com/wp-admin/">
-        <input type="hidden" name="instance" value="">
-        <input type="hidden" name="action" value="login">
+        <input class="submit-button" type="submit" name="log-submit" id="log-submit" value="Login">
     </div>
 
     <div class="tml-form__links aligncenter">
