@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     get '/login' do
-        erb :'login'
+        erb :'/login'
     end
 
     post '/login' do
@@ -11,14 +11,14 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             
             puts session
-            redirect "users/#{@user.id}"
+            redirect "#{@user.id}"
         else
             redirect '/welcome'
         end
     end
 
     get '/signup' do
-        erb :'signup'
+        erb :signup
     end 
 
     post '/users' do
@@ -34,7 +34,8 @@ class UsersController < ApplicationController
 
     get '/:id' do
         @user = User.find_by(id: params[:id])
-        erb :'whiteboard'
+        
+        erb :whiteboard
     end
 
     get '/logout' do

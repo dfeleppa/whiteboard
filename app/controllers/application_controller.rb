@@ -19,14 +19,24 @@ class ApplicationController < Sinatra::Base
 
   get "/whiteboard" do
     erb :whiteboard
+   
   end
 
   get "/workouts" do
-    erb :workouts
+      if logged_in?
+      erb :workouts
+    else
+      redirect '/signup'
+    end
   end
 
   get "/journal" do
-    erb :journal
+    erb:journal
+    # if logged_in?
+    #   erb :journal
+    # else
+    #   redirect '/signup'
+    # end
   end
 
   get "/about" do
