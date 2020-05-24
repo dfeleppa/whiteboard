@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <div class="container">
+<link rel="stylesheet" href="/stylesheets/main.css" />
   <header></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Journal</h2>
-
-    <div class="content">
-      <p>Journal</p>
-    </div>
-
+  <body>
+    <div class="container-index">
     
-
-  </div>
+      <div class="title-index">
+        <h2><%= @user.name.split.map(&:capitalize).join(' ') %>       </h2>
+      </div>
+      <div class="content">
+        <p>Email: <%= @user.email %></p>
+        <p>Sex: <%= @user.sex.capitalize %></p>
+        <p>Height: <%= @user.height %></p>
+        <p>Weight: <%= @user.weight %> lbs.</p>
+        <br></br>
+        <p>Member Since: <%= @user.created_at.strftime("%B") %> <%= @user.created_at.year %></p>
+        <p>Last Updated:<%= @user.updated_at %></p>
+        </div>
+    </div>
+  </body>
 </div>

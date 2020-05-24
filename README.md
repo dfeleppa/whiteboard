@@ -15,7 +15,3 @@ SITEMAP:
 
 '/logout'       Log user out
                 Redirect to signup
-
-
- 
-

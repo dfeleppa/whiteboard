@@ -26,18 +26,16 @@ class UsersController < ApplicationController
              @user = User.create(params)
             
             redirect "/#{@user.id}"
-            
         else
-            redirect '/'
+            #ERROR
+            redirect '/signup'
         end
     end
 
     get '/:id' do
         @user = User.find_by(id: params[:id])
-        erb :'athleteinfo'
+        erb :'whiteboard'
     end
-
-    
 
     get '/logout' do
         session.clear

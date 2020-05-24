@@ -13,22 +13,27 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
   
-  get "/index" do
-    erb :index
+  get "/welcome" do
+    erb :welcome
   end
 
   get "/whiteboard" do
     erb :whiteboard
   end
 
+  get "/workouts" do
+    erb :workouts
+  end
+
   get "/journal" do
     erb :journal
   end
 
-  get "/athleteinfo" do
-    erb :athleteinfo
+  get "/about" do
+    erb :about
   end
 
+  
   helpers do
     def logged_?
       !!current_user

@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
 
     has_many :user_post
 
+    def heightfeet
+        @user.height
+    end
+
 end
