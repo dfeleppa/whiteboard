@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-     get '/login' do
+    get '/login' do
         erb :'login'
     end
 
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             puts session
             redirect "users/#{@user.id}"
         else
-            "DIE."
+            redirect '/welcome'
         end
     end
 
@@ -32,10 +32,12 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/users/:id' do
+    get '/:id' do
         @user = User.find_by(id: params[:id])
-        erb :'athleteinfo.erb'
+        erb :'athleteinfo'
     end
+
+    
 
     get '/logout' do
         session.clear

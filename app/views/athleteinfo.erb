@@ -5,14 +5,17 @@
     <div class="container-index">
     
       <div class="title-index">
-        <h2>Welcome Athlete
-        </h2>
-        
+        <h2><%= @user.name.split.map(&:capitalize).join(' ') %>       </h2>
       </div>
-
       <div class="content">
-        <p>Welcome to the Sinatra Template!</p>
-      </div>
+        <p>Email: <%= @user.email %></p>
+        <p>Sex: <%= @user.sex.capitalize %></p>
+        <p>Height: <%= @user.height %></p>
+        <p>Weight: <%= @user.weight %> lbs.</p>
+        <br></br>
+        <p>Member Since: <%= @user.created_at.strftime("%B") %> <%= @user.created_at.year %></p>
+        <p>Last Updated:<%= @user.updated_at %></p>
+        </div>
     </div>
   </body>
 </div>

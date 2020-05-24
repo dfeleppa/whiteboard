@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :login
+    erb :welcome
   end
   
   get "/index" do
@@ -23,6 +23,10 @@ class ApplicationController < Sinatra::Base
 
   get "/journal" do
     erb :journal
+  end
+
+  get "/athleteinfo" do
+    erb :athleteinfo
   end
 
   helpers do
