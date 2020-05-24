@@ -6,11 +6,15 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :sessions_secret, "what_is_this"
+    set :sessions_secret, "secret"
   end
 
   get "/" do
-    erb :welcome
+    if logged_in?
+      redirect "/users/#{current_user.id}"
+    else
+      redirect "/welcome"
+    end
   end
   
   get "/welcome" do
@@ -18,25 +22,19 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/whiteboard" do
-    erb :whiteboard
-   
-  end
-
-  get "/workouts" do
-      if logged_in?
-      erb :workouts
+    if logged_in?
+      erb :whiteboard
     else
       redirect '/signup'
     end
   end
 
-  get "/journal" do
-    erb:journal
-    # if logged_in?
-    #   erb :journal
-    # else
-    #   redirect '/signup'
-    # end
+  get "/workouts" do
+    if logged_in?
+      erb :workouts
+    else
+      redirect '/signup'
+    end
   end
 
   get "/about" do
@@ -45,12 +43,12 @@ class ApplicationController < Sinatra::Base
 
   
   helpers do
-    def logged_?
+    def logged_in?
       !!current_user
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id])
+        @current_user ||= User.find_by(id: session[:user_id])
     end
   
   end

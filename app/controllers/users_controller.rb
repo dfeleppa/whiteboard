@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    get '/login' do
-        erb :'/login'
+    get '/users/login' do
+        erb :'/users/login'
     end
 
     post '/login' do
@@ -11,31 +11,36 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             
             puts session
-            redirect "#{@user.id}"
+         
+            redirect "users/journal/#{@user.id}"
         else
             redirect '/welcome'
         end
     end
 
-    get '/signup' do
-        erb :signup
+    get '/users/signup' do
+         erb :'/users/signup'
     end 
 
     post '/users' do
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
              @user = User.create(params)
             
-            redirect "/#{@user.id}"
+            redirect "users/journal/#{@user.id}"
         else
             #ERROR
             redirect '/signup'
         end
     end
 
-    get '/:id' do
-        @user = User.find_by(id: params[:id])
+    
+
+    get '/users/journal/:id' do
         
-        erb :whiteboard
+        @user = User.find_by(id: params[:id])
+        binding.pry
+        erb :'users/journal'
+       
     end
 
     get '/logout' do
@@ -44,3 +49,4 @@ class UsersController < ApplicationController
     end
 
 end
+
