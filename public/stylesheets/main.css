@@ -26,6 +26,13 @@
     background-color: rgb(226, 226, 226);
     transition: all 0.3s ease;
   }
+  
+  .flash-success {
+    // stylelint-disable-next-line primer/colors
+    color: $green-800;
+    background-color: $bg-green-light;
+    border-color: $border-black-fade;
+  }
 
   .burger div:hover {     background-color: #48C9B0;   }
 
@@ -253,8 +260,7 @@
     background-color: #fff;
     color: #48C9B0;
   }
-
-
+  
   h1 {
     font-size: 36px;
     line-height: 54px;

@@ -45,7 +45,7 @@ class UsersController < ApplicationController
         erb :'users/journal'
     end
 
-    get '/logout' do
+    get '/users/logout' do
         session.clear
         redirect '/'  
     end

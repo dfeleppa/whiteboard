@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "dantheman"
+    register Sinatra::Flash
   end
 
   get "/" do
@@ -25,7 +26,8 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       erb :whiteboard
     else
-      redirect '/signup'
+      flash[:error] = "Please log in to view this page."
+      redirect '/users/signup'
     end
   end
 
@@ -33,7 +35,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       erb :workouts
     else
-      redirect '/signup'
+      redirect '/users/signup'
     end
   end
 
