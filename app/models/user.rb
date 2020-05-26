@@ -7,5 +7,9 @@ class User < ActiveRecord::Base
         @user.height
     end
 
+    def age
+        age = Date.today.year - birthday.year
+        age -= 1 if Date.today < birthday + age.years #for days before birthday
+    end
 
 end

@@ -1,21 +1,67 @@
 <div class="container">
 <link rel="stylesheet" href="/stylesheets/main.css" />
+<link rel="stylesheet" href="/stylesheets/journal.css" />
   <header></header>
+
   <body>
-    <div class="container-index">
-    
-      <div class="title-index">
-        <h2><%= @user.first_name.capitalize%> <%= @user.last_name.capitalize%></h2>
-      </div>
-      <div class="content">
-        <p>Email: <%= @user.email %></p>
-        <p>Sex: <%= @user.sex.capitalize %></p>
-        <p>Height: <%= @user.height %></p>
-        <p>Weight: <%= @user.weight %> lbs.</p>
-        <br></br>
-        <p>Member Since: <%= @user.created_at.strftime("%B") %> <%= @user.created_at.year %></p>
-        <p>Last Updated:<%= @user.updated_at %></p>
+    <style>
+      body {
+        background: url(../images/deadlift.jpg) no-repeat center center fixed ;
+        background-size: cover ;
+        height: 100%;
+        position: relative;
+        width: 100%;
+      }
+      </style>
+
+      
+      <td>
+        <div style="float:left;width:50%;">
+          <h3><%= @user.first_name.capitalize%> <%= @user.last_name.capitalize%></h3>
         </div>
+        <div style="float:right;width:50%;text-align:right;">
+        <%= @user.email %>
+        </div>
+      </td>
+      <br></br>
+      <ul class="clear-bar">
+          <li class="item-stacked">
+            <div>Sex:</div>
+            <div><%= @user.sex.capitalize %></div>
+          </li>
+          <li class="item-stacked">
+            <div>Height:</div>
+            <div><%= @user.height %></div>
+          </li>
+          <li class="item-stacked">
+            <div>Weight:</div>
+            <div> <%= @user.weight %> lbs.</div>
+          </li>
+          <li class="item-stacked">
+            <div>Member Since:</div>
+            <div> <%= @user.created_at.strftime("%B") %> <%= @user.created_at.year %></div>
+          </li>
+          <li class="item-stacked">
+            <div>Last Updated:</div>
+            <div><%= @user.updated_at %></div>
+          </li>
+        </ul> 
+ 
+
+   
+    
+      <div class="wrapper">
+      <h2h3>WORKOUT LOG</h3>
+
+      
     </div>
+
+
+
+    
   </body>
 </div>
+
+
+
+ 

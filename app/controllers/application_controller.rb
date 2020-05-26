@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      redirect "/users/#{current_user.id}"
+      redirect "/users/journal/#{current_user.id}"
     else
       redirect "/welcome"
     end
@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
       erb :whiteboard
     else
       flash[:danger] = "Please log in to view this page."
-      redirect '/users/signup'
+      redirect '/users/login'
     end
   end
 
@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
       erb :workouts
     else
       flash[:danger] = "Please log in to view this page."
-      redirect '/users/signup'
+      redirect '/users/login'
     end
   end
 

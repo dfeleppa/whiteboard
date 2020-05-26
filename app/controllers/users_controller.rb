@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             puts session
+            
             flash[:success] = "Login Succesful!"
             redirect "users/journal/#{@user.id}"
         else
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
             redirect "users/journal/#{@user.id}"
         else
             flash[:danger] = "Please log in to view this page."
-            redirect '/users/signup'
+            redirect '/users/login'
         end
       end
 
