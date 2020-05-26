@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="/stylesheets/main.css" />
-<div class="error-msg">
+
   <% flash.each do |name, msg| %>
-      <div class="error-msg">
-      
+      <div class="alert-<%= name %>">
         <%= msg %>
       </div>
   <% end %>
-</div>
+
  </html>

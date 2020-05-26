@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       erb :whiteboard
     else
-      flash[:error] = "Please log in to view this page."
+      flash[:danger] = "Please log in to view this page."
       redirect '/users/signup'
     end
   end
@@ -35,6 +35,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       erb :workouts
     else
+      flash[:danger] = "Please log in to view this page."
       redirect '/users/signup'
     end
   end

@@ -27,12 +27,25 @@
     transition: all 0.3s ease;
   }
   
-  .flash-success {
-    // stylelint-disable-next-line primer/colors
-    color: $green-800;
-    background-color: $bg-green-light;
-    border-color: $border-black-fade;
-  }
+  .alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+  color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 
   .burger div:hover {     background-color: #48C9B0;   }
 
@@ -260,7 +273,7 @@
     background-color: #fff;
     color: #48C9B0;
   }
-  
+
   h1 {
     font-size: 36px;
     line-height: 54px;

@@ -10,9 +10,11 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             puts session
+            flash[:success] = "Login Succesful!"
             redirect "users/journal/#{@user.id}"
         else
-            redirect '/welcome'
+            flash[:danger] = "Error: Incorrect email or password, please try again."
+            redirect '/users/login'
         end
     end
 
@@ -24,9 +26,10 @@ class UsersController < ApplicationController
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             @user = User.create(params)
             session[:user_id] = @user.id
-            redirect "users/#{@user.id}"
+            flash[:success] = "New Athlete Account Created!"
+            redirect "users/journal/#{@user.id}"
         else
-            #ERROR
+            flash[:danger] = "Error: Invalid data, please try again."
             redirect '/signup'
         end
     end
@@ -34,9 +37,10 @@ class UsersController < ApplicationController
     get "/users/journal" do
         @user = User.find_by(id: session[:user_id])
         if logged_in?
-          redirect "users/journal/#{@user.id}"
+            redirect "users/journal/#{@user.id}"
         else
-          erb :'users/signup'
+            flash[:danger] = "Please log in to view this page."
+            redirect '/users/signup'
         end
       end
 

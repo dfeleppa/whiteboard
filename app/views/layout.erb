@@ -54,11 +54,11 @@
     </nav>
 
   <script src="/javascripts/app.js"></script>
-
+  <%= erb :flash_messages %>
   </head>
   <body>
     <div class="wrapper">
-        <%= erb :flash_messages %>
+        
         <%= yield %>
       </div>
     </div>
