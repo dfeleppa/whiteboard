@@ -11,4 +11,5 @@ end
 use Rack::MethodOverride
 
 use UsersController
+use JournalController
 run ApplicationController

@@ -1,4 +1,4 @@
 class UserPost < ActiveRecord::Base
 
-    belongs_to :journal
+    belongs_to :user
 end
