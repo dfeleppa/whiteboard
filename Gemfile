@@ -8,6 +8,8 @@ gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'nokogiri'
+gem 'httparty'
 
 
 group :development do

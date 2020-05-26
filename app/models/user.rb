@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
         @user.height
     end
 
+
 end
