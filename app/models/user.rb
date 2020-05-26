@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     has_many :journal
 
     def heightfeet
-        @user.height
+                @user.height
     end
 
     def age

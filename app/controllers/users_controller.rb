@@ -45,6 +45,16 @@ class UsersController < ApplicationController
         end
       end
 
+    get "/users/create_entry" do
+        @user = User.find_by(id: session[:user_id])
+        if logged_in?
+            erb :'users/create_entry'
+        else
+            flash[:danger] = "Please log in to view this page."
+            redirect '/users/login'
+        end
+      end
+
     get '/users/journal/:id' do
         @user = User.find_by(id: params[:id])     
         erb :'users/journal'
