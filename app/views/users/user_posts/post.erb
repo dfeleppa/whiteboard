@@ -1,21 +1,15 @@
 <body>
     <ul>
-        <li>
-            <%=@user_post.user_id %>
+        <li>Athlete:<%= @user.first_name.capitalize%> <%= @user.last_name.capitalize%> </li>
+        <li> <strong> <%=@user_post.workout_name %> </strong>
         </li>
+        <li> <%=@user_post.workout %></li>
+        <br></br>
+        <li>Score: <%=@user_post.score %> <strong><%=@user_post.is_rx?.upcase %></li></strong>
         <li>
-            <%=@user_post.workout_name %>
+            
         </li>
-        <li>
-            <%=@user_post.workout %>
-        </li>
-        <li>
-            <%=@user_post.rx %>
-        </li>
-        <li>
-            <%=@user_post.score %>
-        </li>
-        <li>
-            <%=@user_post.created_at %>
+        <li> Performed on: 
+            <%=@user_post.created_at.to_formatted_s(:long_ordinal) %>
         </li>
 </body>

@@ -11,12 +11,13 @@
     end
 
     get "/users/journal/:id" do
-        @user = User.find_by(id: params[:id])     
+        @user = current_user
+        @user_posts = UserPost.all
         erb :'users/journal'
     end
    
     get "/users/create_entry" do
-        @user = User.find_by(id: session[:user_id])
+        current_user
         if logged_in?
             erb :'users/create_entry'
         else
@@ -39,20 +40,10 @@
             redirect '/signup'
         end
 
-        post '/users' do
-            if params[:name] != "" && params[:email] != "" && params[:password] != ""
-                @user = User.create(params)
-                session[:user_id] = @user.id
-                flash[:success] = "New Athlete Account Created!"
-                redirect "users/journal/#{@user.id}"
-            else
-                flash[:danger] = "Error: Invalid data, please try again."
-                redirect '/signup'
-            end
-        end
-    end
+         end
 
     get '/users/user_posts/:id' do
+        @user = current_user
         @user_post = UserPost.find(params[:id])
         erb :'users/user_posts/post'
     end

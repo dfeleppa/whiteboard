@@ -47,19 +47,22 @@
           </li>
         </ul> 
  
-
-   
-    
-      <div class="wrapper">
-
-      <h2h3>WORKOUT LOG</h3>
-      <a href="/users/create_entry">Log Workout</a>
-      
+    <div class="wrapper">
+    <td>
+    <div style="float:left;width:50%;">
+      <h3>WORKOUT JOURNAL</h3>
     </div>
-
-
-
-    
+    <div style="float:right;width:50%;text-align:right;">
+    <a href="/users/create_entry">Log Workout</a>
+    </div>
+    </td>
+    <br></br>
+    <% @user_posts.each do |user_post| %>
+      <h4><a href="/users/user_posts//<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%></a></h4>
+      <strong><%= user_post.workout_name %></strong> - <%=user_post.is_rx?%> - Score: <%=user_post.score%>
+      <br></br>
+    <% end %>
+    </div>
   </body>
 </div>
 
