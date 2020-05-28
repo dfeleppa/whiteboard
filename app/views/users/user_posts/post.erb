@@ -1,12 +1,14 @@
-<body>
-
-    <ul>
-        
-        <br></br>
+<link rel="stylesheet" href="/stylesheets/main.css" />
+  <header></header>
+  
+  <body>
+  <h3>Athlete Post  <%=@user_post.id%></h3>
+    <div class="container-index">
+        <ul>
         <li> <strong> <%=@user_post.workout_name %> </strong>
         </li>
         <li>
-           <%=@user_post.workout.split("\n").join("<br />") %>
+        <%=@user_post.workout.split("\n").join("<br />") %>
         </li>
         <br></br>
         <li>
@@ -17,6 +19,6 @@
         </li>
         <li></li>
         <li> Performed on: <%=@user_post.created_at.to_formatted_s(:long_ordinal) %></li>
-    </ul>
-
-</body>
+        </ul>
+    </div>
+  </body>
