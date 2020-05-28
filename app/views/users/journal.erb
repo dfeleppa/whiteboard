@@ -1,37 +1,28 @@
-<img src="/images/deadlift.jpg" width=25%>
-<td>
-  <div style="float:left;width:50%;">
-    <h3><%= current_user.first_name.capitalize%> <%= @current_user.last_name.capitalize%></h3>
+<div class="container-image">
+  <img src="/images/deadlift.jpg" width=100%>
+  <div class="center-left">
+    <h1 class="image-texta"><%=current_user.first_name.upcase%></h1>
+    <h1 class="image-textb"><%=current_user.last_name.upcase%></h1>
   </div>
-  <div style="float:right;width:100%;text-align:right;">
-    <%= @current_user.email %>
+  <div class="bottom-table">
+    <table class="athlete-table">
+      <tr class="athlete-row">
+        <td class="table-infoa">Sex:</td>
+        <td class="table-infoa">Height:</td>
+        <td class="table-infoa">Weight:</td>
+        <td class="table-infoa">Member Since:</td>
+      </tr>
+      <tr class="athlete-row">
+        <td class="table-infob"><%= @current_user.sex.capitalize %></td>
+        <td class="table-infob"><%= @current_user.height %></td>
+        <td class="table-infob"><%= @current_user.weight %> lb</td>
+        <td class="table-infob"><%= @current_user.created_at.strftime("%B") %> <%= @current_user.created_at.year %></td>
+      </tr> 
+    </table>
   </div>
-</td>
-<br></br>
-<div>
-    <ul class="clear-bar">
-      <li class="item-stacked"> 
-        <div>Sex:</div>
-        <div><%= @current_user.sex.capitalize %></div>
-      </li>
-      <li class="item-stacked">
-        <div>Height:</div>
-        <div><%= @current_user.height %></div>
-      </li>
-      <li class="item-stacked">
-        <div>Weight:</div>
-        <div> <%= @current_user.weight %> lbs.</div>
-      </li>
-      <li class="item-stacked">
-        <div>Member Since:</div>
-        <div> <%= @current_user.created_at.strftime("%B") %> <%= @current_user.created_at.year %></div>
-      </li>
-      <li class="item-stacked">
-        <div>Last Updated:</div>
-        <div><%= @current_user.updated_at %></div>
-      </li>
-    </ul> 
 </div>
+<div style="float:right;">Last Updated: <%= @current_user.updated_at %></div>
+<br></br>
 <td>
   <div style="float:left;width:50%;">
     <h3>WORKOUT JOURNAL</h3>
@@ -41,15 +32,16 @@
   </div>
 </td>
 <br></br>
-<% @user_posts.each do |user_post| %>
-  <h4><a href="/users/user_posts//<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%></a></h4>
-  <strong><%= user_post.workout_name %></strong> - <%=user_post.is_rx?%> - Score: <%=user_post.score%>
-  <br></br>
-<% end %>
-
-
-  
-
-
-
- 
+<table>
+  <% @user_posts.each do |user_post| %>
+    <tr>
+      <td class="journal-cella">
+        <a href="/users/user_posts//<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
+      </td>
+      <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
+      <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
+      <td class="journal-cellc"> Score: <%=user_post.score%> </td>
+    </tr>
+    <% end %>
+</table>
+<br></br>

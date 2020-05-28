@@ -5,9 +5,9 @@ class UserPost < ActiveRecord::Base
     def is_rx?
         
         if self.rx == true
-            "rx"
+            "RX"
         else
-            "scaled"
+            "Scaled"
         end
     end
 end
