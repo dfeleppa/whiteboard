@@ -1,9 +1,9 @@
    class JournalController < ApplicationController
 
     get "/users/journal" do
-        @user = User.find_by(id: session[:user_id])
+        current_user
         if logged_in?
-            redirect "users/journal/#{@user.id}"
+            redirect "users/journal/#{current_user.id}"
         else
             flash[:danger] = "Please log in to view this page."
             redirect '/users/login'
@@ -11,7 +11,7 @@
     end
 
     get "/users/journal/:id" do
-        @user = current_user
+        current_user
         @user_posts = UserPost.all
         erb :'users/journal'
     end
@@ -43,7 +43,7 @@
          end
 
     get '/users/user_posts/:id' do
-        @user = current_user
+        current_user
         @user_post = UserPost.find(params[:id])
         erb :'users/user_posts/post'
     end

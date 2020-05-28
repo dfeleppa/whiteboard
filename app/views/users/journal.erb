@@ -17,33 +17,33 @@
       
       <td>
         <div style="float:left;width:50%;">
-          <h3><%= @user.first_name.capitalize%> <%= @user.last_name.capitalize%></h3>
+          <h3><%= current_user.first_name.capitalize%> <%= @current_user.last_name.capitalize%></h3>
         </div>
         <div style="float:right;width:50%;text-align:right;">
-        <%= @user.email %>
+        <%= @current_user.email %>
         </div>
       </td>
       <br></br>
       <ul class="clear-bar">
           <li class="item-stacked">
             <div>Sex:</div>
-            <div><%= @user.sex.capitalize %></div>
+            <div><%= @current_user.sex.capitalize %></div>
           </li>
           <li class="item-stacked">
             <div>Height:</div>
-            <div><%= @user.height %></div>
+            <div><%= @current_user.height %></div>
           </li>
           <li class="item-stacked">
             <div>Weight:</div>
-            <div> <%= @user.weight %> lbs.</div>
+            <div> <%= @current_user.weight %> lbs.</div>
           </li>
           <li class="item-stacked">
             <div>Member Since:</div>
-            <div> <%= @user.created_at.strftime("%B") %> <%= @user.created_at.year %></div>
+            <div> <%= @current_user.created_at.strftime("%B") %> <%= @current_user.created_at.year %></div>
           </li>
           <li class="item-stacked">
             <div>Last Updated:</div>
-            <div><%= @user.updated_at %></div>
+            <div><%= @current_user.updated_at %></div>
           </li>
         </ul> 
  

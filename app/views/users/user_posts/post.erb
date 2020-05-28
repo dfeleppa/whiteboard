@@ -1,15 +1,22 @@
 <body>
+
     <ul>
-        <li>Athlete:<%= @user.first_name.capitalize%> <%= @user.last_name.capitalize%> </li>
+        
+        <br></br>
         <li> <strong> <%=@user_post.workout_name %> </strong>
         </li>
-        <li> <%=@user_post.workout %></li>
-        <br></br>
-        <li>Score: <%=@user_post.score %> <strong><%=@user_post.is_rx?.upcase %></li></strong>
         <li>
-            
+           <%=@user_post.workout.split("\n").join("<br />") %>
         </li>
-        <li> Performed on: 
-            <%=@user_post.created_at.to_formatted_s(:long_ordinal) %>
+        <br></br>
+        <li>
+            <strong>Score: </strong><%=@user_post.score %><%=@user_post.is_rx?.upcase %>
         </li>
+        <li>
+            <strong>Athlete:</strong> <%= current_user.first_name.capitalize%> <%= @current_user.last_name.capitalize%>
+        </li>
+        <li></li>
+        <li> Performed on: <%=@user_post.created_at.to_formatted_s(:long_ordinal) %></li>
+    </ul>
+
 </body>
