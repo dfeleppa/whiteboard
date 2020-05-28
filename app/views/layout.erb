@@ -10,7 +10,9 @@
     <title>Whiteboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
-    
+  </head>
+  <body>
+  <div class="page-container">
     <nav>
       <div class="space">
         <div class="space1"></div>
@@ -52,28 +54,22 @@
       </li>
       </ul>
     </nav>
-
-  <script src="/javascripts/app.js"></script>
-  <%= erb :flash_messages %>
-  </head>
-  <body>
+    <script src="/javascripts/app.js"></script>
+    <%= erb :flash_messages %>
     <div class="wrapper">
-        
-        <%= yield %>
-      </div>
+      <%= yield %>
     </div>
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
-  </body>
-
-  <footer class="branding">
-    <div class="footer-logo">
+    <footer class="branding">
+      <div class="footer-logo">
         <img src="/images/wblogo.png" class="img-responsive main-image">
-    </div>
+     </div>
         <small>&copy; 2020 <strong>Whiteboard</strong></small>
-  </footer>
+   </footer>
+  </div>  
+</body>    
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <!--[if lt IE 7]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+  <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+  <![endif]-->
 </html>

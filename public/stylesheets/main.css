@@ -7,6 +7,52 @@
     box-sizing: border-box;
   }
 
+  .page-container{
+    position: relative;
+    min-height: 100vh;
+  }
+  body {
+    background-color: #fff;
+    color: #191818;
+    
+  }
+  .wrapper {  
+    padding-bottom: 200px;
+  }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px; 
+  }
+
+  
+  footer.branding { 
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #191818;
+    color: rgb(83, 83, 83);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    border-top: 1px solid #292929;
+    float: center;
+  }
+
+  .footer-logo{
+    padding: 12px;
+  }
+
+
+
   head{
     overflow-x: hidden;
   }
@@ -19,6 +65,31 @@
     width: 10px;
   }
 
+  .banner-img {
+    align-items:center;
+    box-sizing:border-box;
+    color:rgb(92, 0, 143);
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    font-family:proxima-nova, "Helvetica Neue", sans-serif;
+    font-size:16px;
+    font-weight:200;
+    height:314.391px;
+    line-height:25.6px;
+    margin-bottom:0px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    min-height:200px;
+    min-width:100%;
+    padding-top:0px;
+    position:relative;
+    text-align:center;
+    text-size-adjust:100%;
+    width:769px;
+  }
+
   .burger div{
     width: 35px;
     height: 3px;
@@ -26,6 +97,27 @@
     background-color: rgb(226, 226, 226);
     transition: all 0.3s ease;
   }
+  
+  .item-stacked {
+    overflow: auto;
+    position: relative;
+    border-right: 0;
+    padding: 0;
+    text-align: left;
+    padding: 0 10px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+.clear-bar {
+    display: flex;
+    flex-direction: row;
+}
   
   .alert-danger {
     color: #a94442;
@@ -138,20 +230,7 @@
   }
 
   /* --- Welcome Page Styles --- */
-  body {
-    background-color: #fff;
-    color: #191818;
-    
-  }
-  .wrapper {
-    background: none;
-    margin: 16px auto;
-    max-width: 1080px;
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
-    height: auto;
-    min-height: 85%;
-  }
+ 
   
   .container-index {
     background: #48C9B0;
@@ -352,38 +431,7 @@
     clear: both;
   }
 
-  footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #191818;
-  }
-
-  
-  footer.branding {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin-top: 20px;
-    padding-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 14vh;
-    background-color: #191818;
-    color: rgb(83, 83, 83);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    border-top: 1px solid #292929;
-    float: center;
-  }
-
-  .footer-logo{
-    padding: 12px;
-  }
-  
-  .journal-entry-text {
+   .journal-entry-text {
     width: 600px;
     height: 120px;
     border: 3px solid #cccccc;
