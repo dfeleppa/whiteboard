@@ -48,5 +48,10 @@
         erb :'users/user_posts/post'
     end
 
+    get '/users/user_posts/:id/edit' do
+        @user_post = UserPost.find(params[:id])
+        erb :'users/user_posts/edit'
+    end
+
 
 end

@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
     has_secure_password
 
-    has_many :journal
-    has_many :user_post
+    has_many :user_posts
 
     def heightfeet
                 @user.height

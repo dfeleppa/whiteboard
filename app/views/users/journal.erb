@@ -40,7 +40,8 @@
       </td>
       <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
       <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
-      <td class="journal-cellc"> Score: <%=user_post.score%> </td>
+      <td class="journal-cellb"> Score: <%=user_post.score%> </td>
+      <td class="journal-cellc"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit Post</a> </td>
     </tr>
     <% end %>
 </table>

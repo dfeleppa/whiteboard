@@ -1,24 +1,15 @@
 <link rel="stylesheet" href="/stylesheets/main.css" />
   <header></header>
-  
+  <br></br>
   <body>
-  <h3>Athlete Post  <%=@user_post.id%></h3>
+  <h3>Athlete Post:  <%=@user_post.id%></h3>
     <div class="container-index">
-        <ul>
-        <li> <strong> <%=@user_post.workout_name %> </strong>
-        </li>
-        <li>
-        <%=@user_post.workout.split("\n").join("<br />") %>
-        </li>
+        <p><strong> <%=@user_post.workout_name %></strong></p>
+        <p><%=@user_post.workout.split("\n").join("<br />") %></p>
         <br></br>
-        <li>
-            <strong>Score: </strong><%=@user_post.score %><%=@user_post.is_rx?.upcase %>
-        </li>
-        <li>
-            <strong>Athlete:</strong> <%= current_user.first_name.capitalize%> <%= @current_user.last_name.capitalize%>
-        </li>
-        <li></li>
-        <li> Performed on: <%=@user_post.created_at.to_formatted_s(:long_ordinal) %></li>
-        </ul>
+        <p><strong>Score: </strong><%=@user_post.score %> (<%=@user_post.is_rx?%>)</p>
+        <p><strong>Athlete:</strong> <%= current_user.first_name.capitalize%> <%= @current_user.last_name.capitalize%></p>
+        <p>Performed on: <%=@user_post.created_at.to_formatted_s(:long_ordinal) %></p>
+        <p>Updated: <%=@user_post.updated_at.to_formatted_s(:long_ordinal) %></p>
     </div>
   </body>

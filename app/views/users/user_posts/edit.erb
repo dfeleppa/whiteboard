@@ -1,0 +1,20 @@
+<header></header>
+<br></br>
+<body>
+<h3><strong>EDIT:</strong> Athlete Post  <%=@user_post.id%></h3>
+  <div class="container-index">
+    <form class="" action="/user_posts" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <label for="workout_name">Workout Name: </label>
+        <input type="text" name="wokout_name" value ="<%= @user_post.workout_name %>">
+        <label for="workout">Workout : </label>
+        <textarea class="journal-entry-text" name="wokout"><%= @user_post.workout %></textarea>
+        <br></br>
+        <label for="score">Score: </label>
+        <input type="text" name="score" value ="<%= @user_post.score %>">
+        <label for="rx">RX: </label>
+        <input type="text" name="rx" value ="<%= @user_post.rx %>">
+        <input type="submit" name="" value="Edit Entry">
+    </form>
+  </div>
+</body>
