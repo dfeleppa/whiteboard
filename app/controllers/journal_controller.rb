@@ -60,7 +60,7 @@
                 erb :'users/user_posts/edit'
             else
                 flash[:danger] = "Error: You cannot edit another athlete's post!"
-                redirect '/users/login'
+                redirect '/'
             end
         end
     end
@@ -69,17 +69,22 @@
         set_user_post
         if !logged_in?
             redirect '/users/login'
-        end
-        if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
-            @user_post.update(score: params[:score],  workout_name: params[:workout_name], rx: params[:rx], workout: params[:workout] )
-            
-            flash[:success] = "Journal Entry Updated!"
-            redirect "users/user_posts/#{@user_post.id}"
         else
-            flash[:danger] = "Error: Please complete the journal entry form."
-            redirect '/signup'
+            if owns_post?
+                if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
+                    @user_post.update(score: params[:score],  workout_name: params[:workout_name], rx: params[:rx], workout: params[:workout] )
+                    
+                    flash[:success] = "Journal Entry Updated!"
+                    redirect "users/user_posts/#{@user_post.id}"
+                else
+                    flash[:danger] = "Error: Please complete the journal entry form."
+                    redirect '/signup'
+                end
+            else
+                flash[:danger] = "Error: You cannot edit another athlete's post!"
+                redirect '/'
+            end
         end
-
     end
 
 

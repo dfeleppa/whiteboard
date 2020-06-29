@@ -33,7 +33,7 @@
 </td>
 <br></br>
 <table>
-  <% @user_posts.each do |user_post| %>
+  <% @current_user.user_posts.each do |user_post| %>
     <tr>
       <td class="journal-cella">
         <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
