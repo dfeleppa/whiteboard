@@ -53,7 +53,10 @@ class ApplicationController < Sinatra::Base
     def current_user
         @current_user ||= User.find_by(id: session[:user_id])
     end
-  
+
+    def set_user_post
+      @user_post = UserPost.find(params[:id])
+    end
   end
 
 end

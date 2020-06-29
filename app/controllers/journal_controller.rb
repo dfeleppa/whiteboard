@@ -30,8 +30,7 @@
         if !logged_in?
             redirect '/users/login'
         end
-          if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
-            
+        if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
             @user_post = UserPost.create(user_id: current_user.id, workout_name: params[:workout_name], score: params[:score], rx: params[:rx], workout: params[:workout])
             flash[:success] = "New Journal Entry Created!"
             redirect "users/user_posts/#{@user_post.id}"
@@ -40,17 +39,34 @@
             redirect '/signup'
         end
 
-         end
+    end
 
     get '/users/user_posts/:id' do
         current_user
-        @user_post = UserPost.find(params[:id])
+        set_user_post
         erb :'users/user_posts/post'
     end
 
     get '/users/user_posts/:id/edit' do
-        @user_post = UserPost.find(params[:id])
+        set_user_post
         erb :'users/user_posts/edit'
+    end
+
+    patch '/users/user_posts/:id' do
+        set_user_post
+        if !logged_in?
+            redirect '/users/login'
+        end
+        if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
+            @user_post.update(score: params[:score],  workout_name: params[:workout_name], rx: params[:rx], workout: params[:workout] )
+            
+            flash[:success] = "Journal Entry Updated!"
+            redirect "users/user_posts/#{@user_post.id}"
+        else
+            flash[:danger] = "Error: Please complete the journal entry form."
+            redirect '/signup'
+        end
+
     end
 
 

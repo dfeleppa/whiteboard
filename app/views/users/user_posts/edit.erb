@@ -2,19 +2,28 @@
 <br></br>
 <body>
 <h3><strong>EDIT:</strong> Athlete Post  <%=@user_post.id%></h3>
-  <div class="container-index">
-    <form class="" action="/user_posts" method="post">
-        <input type="hidden" name="_method" value="patch">
-        <label for="workout_name">Workout Name: </label>
-        <input type="text" name="wokout_name" value ="<%= @user_post.workout_name %>">
-        <label for="workout">Workout : </label>
-        <textarea class="journal-entry-text" name="wokout"><%= @user_post.workout %></textarea>
-        <br></br>
-        <label for="score">Score: </label>
-        <input type="text" name="score" value ="<%= @user_post.score %>">
-        <label for="rx">RX: </label>
-        <input type="text" name="rx" value ="<%= @user_post.rx %>">
-        <input type="submit" name="" value="Edit Entry">
-    </form>
-  </div>
+  <h4 style= "text-align: right">
+    <a href="/users/journal">Cancel</a>
+  </h4>
+  
+  <form class="" action="/users/user_posts/<%=@user_post.id%>" method="post">
+    <div class="container-index">
+      <input type="hidden" name="_method" value="patch">
+      <label for="workout_name">Workout Name: </label>
+      <input type="text" name="workout_name" value ="<%= @user_post.workout_name %>">
+      <br></br>
+      <label for="workout" vertical-align:"top">Workout : </label>
+      <textarea class="journal-entry-text" name="workout"><%= @user_post.workout %></textarea>
+      <br></br>
+      <label for="score">Score: </label>
+      <input type="text" name="score" value ="<%= @user_post.score %>">
+      <label for="rx">RX: </label>
+      <input type="text" name="rx" value ="<%= @user_post.rx %>">
+    </div>
+    <div class="submit-form">
+      <input class="submit-button" type="submit" name="" value="Submit" style="width: 200px;">
+    </div>
+  </form>
+  
+ 
 </body>

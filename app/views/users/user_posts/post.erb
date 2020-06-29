@@ -3,7 +3,10 @@
   <br></br>
   <body>
   <h3>Athlete Post:  <%=@user_post.id%></h3>
-    <div class="container-index">
+  <div>
+    <a href="/users/user_posts/<%= @user_post.id%>/edit">Edit Post</a>
+  </div>
+  <div class="container-index">
         <p><strong> <%=@user_post.workout_name %></strong></p>
         <p><%=@user_post.workout.split("\n").join("<br />") %></p>
         <br></br>
