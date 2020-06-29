@@ -56,7 +56,7 @@
         if !logged_in?
             redirect '/users/login'
         else
-            if owns_post?
+            if owns_post?(@user_post)
                 erb :'users/user_posts/edit'
             else
                 flash[:danger] = "Error: You cannot edit another athlete's post!"
@@ -70,7 +70,7 @@
         if !logged_in?
             redirect '/users/login'
         else
-            if owns_post?
+            if owns_post?(@user_post)
                 if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
                     @user_post.update(score: params[:score],  workout_name: params[:workout_name], rx: params[:rx], workout: params[:workout] )
                     
@@ -87,5 +87,16 @@
         end
     end
 
-
+    delete 'users/user_posts/:id' do
+        set_user_post
+        current_user
+        if owns_post?(@user_post)
+            @user_post.destroy
+            flash[:success] = "Journal entry deleted!"
+            redirect '/'
+        else
+            flash[:danger] = "Error: You cannot delete another athlete's post!"
+            redirect '/'
+        end
+    end
 end

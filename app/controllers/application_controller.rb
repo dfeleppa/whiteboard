@@ -58,7 +58,7 @@ class ApplicationController < Sinatra::Base
       @user_post = UserPost.find(params[:id])
     end
 
-    def owns_post?
+    def owns_post?(user_post)
       @user_post.user == current_user
     end
       

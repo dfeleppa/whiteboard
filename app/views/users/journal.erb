@@ -41,8 +41,14 @@
       <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
       <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
       <td class="journal-cellb"> Score: <%=user_post.score%> </td>
-      <td class="journal-cellc"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit Post</a> </td>
-    </tr>
+      <td class="journal-cellb"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit </a> </td>
+      <td class="journal-cellc"> 
+        <a href="">Delete</a>
+        <form class="" action="/users/user_posts/<%= user_post.id%>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          _"
+          <input type="submit" name="" value="Delete user post">
+      </tr>
     <% end %>
 </table>
 <br></br>
