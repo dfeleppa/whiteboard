@@ -44,12 +44,25 @@
     get '/users/user_posts/:id' do
         current_user
         set_user_post
+        if !logged_in?
+            redirect '/users/login'
+        end
         erb :'users/user_posts/post'
     end
 
     get '/users/user_posts/:id/edit' do
+        current_user
         set_user_post
-        erb :'users/user_posts/edit'
+        if !logged_in?
+            redirect '/users/login'
+        else
+            if owns_post?
+                erb :'users/user_posts/edit'
+            else
+                flash[:danger] = "Error: You cannot edit another athlete's post!"
+                redirect '/users/login'
+            end
+        end
     end
 
     patch '/users/user_posts/:id' do
