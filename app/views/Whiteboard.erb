@@ -6,8 +6,33 @@
     <div class="content">
       <h3>Today's Workout </h3>
     </div>
-
-    
-
+    <br></br>
+  
+    <br></br>
+    <table>
+      <% User.all.each do |user| %>
+      
+        <% if user.admin == true %>
+          <table>
+            <% user.user_posts.each do |user_post| %>
+              
+                <td class="journal-cella">
+                  <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
+                </td>
+                <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td> 
+                <td class="journal-cellb"> </a><strong><%= user_post.workout%></strong> </td>
+                    
+          
+          </tr>
+            <% end %>
+          </table>
+        <% end%>
+      
+          
+        </td>
+        
+      <% end %>
+</table>
+     
   </div>
 </div>

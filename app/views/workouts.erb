@@ -1,1 +1,38 @@
-<h1>Workouts</h1>
+<div class="container">
+  <header></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>GYM NAME's Workouts</h2>
+    <br></br>
+    <div class="content">
+      <h3>Today's Workout </h3>
+    </div>
+    <br></br>
+  
+    <br></br>
+    <table>
+      <% Admin_workouts.all.each do |user| %>
+      
+        <% if user.admin == true %>
+          <table>
+            <% user.user_posts.each do |admin_post| %>
+                admin_workout_name
+                t.string :admin_workout
+                <td class="journal-cella">
+                  <a href="/users/user_posts/<%= user_post.id %>"><%=admin_post.created_at.to_formatted_s(:long_ordinal)%>
+                </td>
+                <td class="journal-cellb"><%=admin_post.created_at.to_formatted_s(:long_ordinal)%> </td> 
+                <td class="journal-cellb"> </a><strong><%= admin_post.admin_workout_name%></strong> </td> 
+                <td class="journal-cellb"> </a><strong><%= admin_post.workout%></strong> </td>
+            </tr>
+            <% end %>
+          </table>
+        <% end%>
+      
+          
+        </td>
+        
+      <% end %>
+</table>
+     
+  </div>
+</div>

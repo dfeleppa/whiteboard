@@ -89,7 +89,6 @@
 
     delete 'users/user_posts/:id' do
         set_user_post
-        current_user
         if owns_post?(@user_post)
             @user_post.destroy
             flash[:success] = "Journal entry deleted!"
