@@ -10,6 +10,7 @@ end
 
 use Rack::MethodOverride
 
+use AdminController
 use UsersController
 use JournalController
 run ApplicationController

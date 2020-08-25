@@ -64,7 +64,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def admin?
-      
+      current_user
+      if logged_in?
+        @current_user.admin == true
+      end
+    end
+
       
   end
 
