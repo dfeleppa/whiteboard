@@ -1,13 +1,73 @@
-<div class="container">
-  <header></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Whiteboard</h2>
+
+<div class="container-image">
+<img src="/images/wb1.jpg" width=100%>
+<div class="center-left">
+  <h1 class="image-texta"><%=current_user.first_name.upcase%></h1>
+  <h1 class="image-textb"><%=current_user.last_name.upcase%></h1>
+</div>
+<div class="bottom-table">
+  <table class="athlete-table">
+    <tr class="athlete-row">
+      <td class="table-infoa">Sex:</td>
+      <td class="table-infoa">Height:</td>
+      <td class="table-infoa">Weight:</td>
+      <td class="table-infoa">Member Since:</td>
+    </tr>
+    <tr class="athlete-row">
+      <td class="table-infob"><%= @current_user.sex.capitalize %></td>
+      <td class="table-infob"><%= @current_user.height %></td>
+      <td class="table-infob"><%= @current_user.weight %> lb</td>
+      <td class="table-infob"><%= @current_user.created_at.strftime("%B") %> <%= @current_user.created_at.year %></td>
+    </tr> 
+  </table>
+</div>
+</div>
+
+<div style="float:right;">Last Updated: <%= @current_user.updated_at %></div>
+<br></br>
+<td>
+<div style="float:left;width:50%;">
+  <h3>WORKOUT JOURNAL</h3>
+</div>
+<div style="float:right;width:50%;text-align:right;">
+  <a href="/users/create_entry">Log Workout</a>
+</div>
+</td>
+<br></br>
+<table>
+<% @current_user.user_posts.each do |user_post| %>
+  <tr>
+    <td class="journal-cella">
+      <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
+    </td>
+    <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
+    <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
+    <td class="journal-cellb"> Score: <%=user_post.score%> </td>
+    <td class="journal-cellb"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit </a> </td>
+    <td class="journal-cellc"> 
+      
+      <form class="" action="/users/user_posts/<%= user_post.id%>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="" value="Delete">
+      </form>
+    </td>
+    </tr>
+  <% end %>
+</table>
+<br></br>
+
     <br></br>
-    <div class="content">
-      <h3>Today's Workout </h3>
+    <h1>Whiteboard</h2>
+    <div style="text-indent: 16px;">
+      <% if admin? %>
+        <h3><a href= "/admin/create_entry">Add Workout</h3>
+      <% end %>
     </div>
     <br></br>
-  
+    <div class="content">
+    <h2>Today's Workout </h2>
+    </div>
+    <br></br>
     <br></br>
     <table>
       <% User.all.each do |user| %>

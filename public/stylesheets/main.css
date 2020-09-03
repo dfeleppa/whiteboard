@@ -22,7 +22,7 @@
     overflow: auto;
     width: 85%;
     margin: auto;
-    z-index: -1;
+    z-index: 1;
     position: relative;
   }
 
@@ -220,7 +220,7 @@
     align-items: center;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in;
-    z-index: 1;
+    z-index: 2;
   }
 
   .nav-links li{

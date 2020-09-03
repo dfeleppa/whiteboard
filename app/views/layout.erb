@@ -43,15 +43,18 @@
         </a>
       </div>
       <ul class="nav-login">
-        <li>
-          <a href="/users/login">Log In<a/>
-        </li>
-        <li>
-          <a href="/users/signup">Sign Up<a/>
-        </li>
-        <li>
-        <a href="/users/logout">Logout<a/>
-      </li>
+        <% if !logged_in? %>
+          <li>
+            <a href="/users/login">Log In<a/>
+          </li>
+          <li>
+            <a href="/users/signup">Sign Up<a/>
+          </li>
+        <% else %>
+          <li>
+            <a href="/users/logout">Logout<a/>
+          </li>
+        <% end %>
       </ul>
     </nav>
     <script src="/javascripts/app.js"></script>
