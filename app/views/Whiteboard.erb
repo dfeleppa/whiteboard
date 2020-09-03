@@ -1,29 +1,11 @@
 
 <div class="container-image">
-<img src="/images/wb1.jpg" width=100%>
-<div class="center-left">
-  <h1 class="image-texta"><%=current_user.first_name.upcase%></h1>
-  <h1 class="image-textb"><%=current_user.last_name.upcase%></h1>
-</div>
-<div class="bottom-table">
-  <table class="athlete-table">
-    <tr class="athlete-row">
-      <td class="table-infoa">Sex:</td>
-      <td class="table-infoa">Height:</td>
-      <td class="table-infoa">Weight:</td>
-      <td class="table-infoa">Member Since:</td>
-    </tr>
-    <tr class="athlete-row">
-      <td class="table-infob"><%= @current_user.sex.capitalize %></td>
-      <td class="table-infob"><%= @current_user.height %></td>
-      <td class="table-infob"><%= @current_user.weight %> lb</td>
-      <td class="table-infob"><%= @current_user.created_at.strftime("%B") %> <%= @current_user.created_at.year %></td>
-    </tr> 
-  </table>
-</div>
+<img src="/images/whitebanner.jpg" width=100%> 
+  <div class="center-left">
+    <h1 class="image-texta">WHITEBOARD</h1>
+  </div>
 </div>
 
-<div style="float:right;">Last Updated: <%= @current_user.updated_at %></div>
 <br></br>
 <td>
 <div style="float:left;width:50%;">
