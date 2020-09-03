@@ -71,12 +71,15 @@
     transition: all 0.3s ease;
   }
   
+
   .athlete-table { 
     background-color:rgb(48, 48, 48);
     opacity: 80%;
     width: 100%;
   }
   .athlete-row { width: 100%; height: 50px; }
+
+  .wb-row { width: 100%; height: 100px; }
 
   .table-infoa {
     vertical-align: bottom;
@@ -103,6 +106,18 @@
   font-family:"raleway", Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 26px;
+  color: rgb(255, 255, 255);
+}
+
+.wbtext {
+  vertical-align: center;
+  text-align: left;
+  text-size-adjust:100%;
+  text-transform:uppercase;
+  text-indent: 20px;
+  font-family:"raleway", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 48px;
   color: rgb(255, 255, 255);
 }
 

@@ -1,45 +1,17 @@
 
 <div class="container-image">
-<img src="/images/whitebanner.jpg" width=100%> 
-  <div class="center-left">
-    <h1 class="image-texta">WHITEBOARD</h1>
+  <img src="/images/wbban.jpg" width=100%> 
+  <div class="wbban">
+  </div>
+  <div class="bottom-table">
+    <table class="athlete-table">
+      <tr class="wb-row">
+        <td class="wbtext">Whiteboard</td>
+      </tr> 
+    </table>
   </div>
 </div>
-
 <br></br>
-<td>
-<div style="float:left;width:50%;">
-  <h3>WORKOUT JOURNAL</h3>
-</div>
-<div style="float:right;width:50%;text-align:right;">
-  <a href="/users/create_entry">Log Workout</a>
-</div>
-</td>
-<br></br>
-<table>
-<% @current_user.user_posts.each do |user_post| %>
-  <tr>
-    <td class="journal-cella">
-      <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
-    </td>
-    <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
-    <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
-    <td class="journal-cellb"> Score: <%=user_post.score%> </td>
-    <td class="journal-cellb"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit </a> </td>
-    <td class="journal-cellc"> 
-      
-      <form class="" action="/users/user_posts/<%= user_post.id%>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" name="" value="Delete">
-      </form>
-    </td>
-    </tr>
-  <% end %>
-</table>
-<br></br>
-
-    <br></br>
-    <h1>Whiteboard</h2>
     <div style="text-indent: 16px;">
       <% if admin? %>
         <h3><a href= "/admin/create_entry">Add Workout</h3>
@@ -49,6 +21,7 @@
     <div class="content">
     <h2>Today's Workout </h2>
     </div>
+    <% user.user_posts.last.workout_name  %>
     <br></br>
     <br></br>
     <table>
@@ -74,7 +47,5 @@
         </td>
         
       <% end %>
-</table>
-     
-  </div>
-</div>
+    </table>
+
