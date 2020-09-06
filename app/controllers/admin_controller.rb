@@ -34,51 +34,51 @@ class AdminController < ApplicationController
     end
 
     get '/admin/workouts/:id/edit' do
-        current_user
-        set_user_post
+        set_admin_workout
         if !logged_in?
             redirect '/users/login'
+            flash[:danger] = "Error: You must be logged in to view the Whiteboard."
         else
-            if owns_post?(@user_post)
-                erb :'users/user_posts/edit'
+            if admin?
+                erb :'admin/edit'
             else
-                flash[:danger] = "Error: You cannot edit another athlete's post!"
+                flash[:danger] = "Error: Only administrators can edit the Whiteboard."
                 redirect '/'
             end
         end
     end
 
     patch '/admin/workouts/:id' do
-        # set_user_post
-        # if !logged_in?
-        #     redirect '/users/login'
-        # else
-        #     if owns_post?(@user_post)
-        #         if params[:workout_name] != "" && params[:rx] != "" && params[:score] != "" && params[:workout] != ""
-        #             @user_post.update(score: params[:score],  workout_name: params[:workout_name], rx: params[:rx], workout: params[:workout] )
-                    
-        #             flash[:success] = "Journal Entry Updated!"
-        #             redirect "users/user_posts/#{@user_post.id}"
-        #         else
-        #             flash[:danger] = "Error: Please complete the journal entry form."
-        #             redirect '/signup'
-        #         end
-        #     else
-        #         flash[:danger] = "Error: You cannot edit another athlete's post!"
-        #         redirect '/'
-        #     end
-        # end
+        set_admin_workout
+        if !logged_in?
+            redirect '/users/login'
+            flash[:danger] = "Error: You must be logged in to view the Whiteboard."
+        else
+            if admin?
+                if params[:admin_workout_name] != "" && params[:admin_workout] != ""
+                    @admin_workout.update(admin_workout_name: params[:admin_workout_name], admin_workout: params[:admin_workout] )
+                    flash[:success] = "Workout Updated!"
+                    redirect '/'
+                else
+                    flash[:danger] = "Error: Please complete the workout edit form."
+                    redirect '/signup'
+                end
+            else
+                flash[:danger] = "Error: Only administrators can edit the Whiteboard."
+                redirect '/'
+            end
+        end
     end
 
-    delete 'admin/workouts/:id' do
-        # set_user_post
-        # if owns_post?(@user_post)
-        #     @user_post.destroy
-        #     flash[:success] = "Journal entry deleted!"
-        #     redirect '/'
-        # else
-        #     flash[:danger] = "Error: You cannot delete another athlete's post!"
-        #     redirect '/'
-        # end
+    delete '/admin/workouts/:id' do
+        set_admin_workout
+        if admin?
+            @admin_workout.destroy
+            flash[:success] = "Workout deleted!"
+            redirect '/'
+        else
+            flash[:danger] = "Error: Only administrators can delete workouts"
+            redirect '/'
+        end
     end
 end

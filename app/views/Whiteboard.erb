@@ -11,29 +11,40 @@
     </table>
   </div>
 </div>
-<br></br>
+    <div class="content">
+      <h2>Today's Workout </h2>
+    </div>
+    
+    <br></br>
+    <div class="content">
+      <h2> Past Workouts </h2>
+    </div>
     <div style="text-indent: 16px;">
       <% if admin? %>
         <h3><a href= "/admin/create_entry">Add Workout</a></h3>
       <% end %>
     </div>
     <br></br>
-    <div class="content">
-    <h2>Today's Workout </h2>
-    </div>
-    <p><% AdminWorkout.last.admin_workout_name %></p>
-    <p><% AdminWorkout.last.admin_workout %></p>
-    <br></br>
-    
+    <table>
       <% AdminWorkout.all.each do |workout| %>
-        <table>
+        <tr>
           <td class="journal-cella">
-            <a href="/admin/workouts/<%= workout.id %>"><%=workout.created_at.to_formatted_s(:long_ordinal)%></a>
+            <a href="/admin/workouts/<%= workout.id %>"><%=workout.created_at.to_formatted_s(:long_ordinal) %></a>
           </td>
           <td class="journal-cella"> <strong><%= workout.admin_workout_name%></strong> </td> 
           <td class="journal-cellb"> <%= workout.admin_workout%> </td>
-          <% if admin? %>
-            <a href="/users/user_posts/<%= @admin_workout.id%>/edit">Edit</a>
-        <% end %>
-        </table>
+          <td class="journal-cellb">
+            <% if admin? %>
+              <a href="/admin/workouts/<%= workout.id%>/edit">Edit</a>
+            <% end %>
+          </td>
+          <td class="journal-cellc"> 
+            <form class="" action="/admin/workouts/<%= workout.id%>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" name="" value="Delete">
+            </form>
+          </td>
+        </tr>
       <% end%>
+    </table>
+      

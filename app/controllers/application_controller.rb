@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      redirect "/users/journal/#{current_user.id}"
+      redirect "/whiteboard"
     else
       redirect "/welcome"
     end
@@ -23,9 +23,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/whiteboard" do
+    recent_workout
     if logged_in?
       erb :whiteboard
-     
     else
       flash[:danger] = "Please log in to view this page."
       redirect '/users/login'
@@ -61,6 +61,10 @@ class ApplicationController < Sinatra::Base
 
     def set_admin_workout
       @admin_workout = AdminWorkout.find(params[:id])
+    end
+
+    def recent_workout
+      @recent = AdminWorkout.last
     end
 
     def owns_post?(user_post)
