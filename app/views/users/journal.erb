@@ -37,9 +37,9 @@
   <% @current_user.user_posts.each do |user_post| %>
     <tr>
       <td class="journal-cella">
-        <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%>
+        <a href="/users/user_posts/<%= user_post.id %>"><%=user_post.created_at.to_formatted_s(:long_ordinal)%></a>
       </td>
-      <td class="journal-cellb"> </a><strong><%= user_post.workout_name%></strong> </td>
+      <td class="journal-cellb"> <strong><%= user_post.workout_name%></strong> </td>
       <td class="journal-cellb"> <%=user_post.is_rx?%> </td>
       <td class="journal-cellb"> Score: <%=user_post.score%> </td>
       <td class="journal-cellb"> <a href="/users/user_posts/<%= user_post.id%>/edit">Edit </a> </td>

@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/stylesheets/main.css" />
+  <header></header>
+  <br></br>
+  <body>
+    <div>
+        <% if admin? %>
+            <a href="/admin/admin_workout/<%= @admin_workout.id%>/edit">Edit Workout</a>
+        <% end %>
+    </div>
+    <div class="container-index">
+        <p><strong> <%=@admin_workout.admin_workout_name.capitalize %></strong></p>
+        <p><%=@admin_workout.admin_workout.split("\n").join("<br />") %></p>
+        <br></br>
+        <p>Posted on: <%=@admin_workout.created_at.to_formatted_s(:long_ordinal) %></p>
+    </div>
+
+  </body>

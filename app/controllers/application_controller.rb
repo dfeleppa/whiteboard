@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   get "/whiteboard" do
     if logged_in?
       erb :whiteboard
-    
+     
     else
       flash[:danger] = "Please log in to view this page."
       redirect '/users/login'
@@ -57,6 +57,10 @@ class ApplicationController < Sinatra::Base
 
     def set_user_post
       @user_post = UserPost.find(params[:id])
+    end
+
+    def set_admin_workout
+      @admin_workout = AdminWorkout.find(params[:id])
     end
 
     def owns_post?(user_post)
