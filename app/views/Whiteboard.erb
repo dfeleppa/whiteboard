@@ -1,4 +1,3 @@
-
 <div class="container-image">
   <img src="/images/wbban.jpg" width=100%> 
   <div class="wbban">
@@ -14,16 +13,19 @@
     <div class="content">
       <h2>Today's Workout </h2>
     </div>
-    
     <br></br>
+    <ul style="padding-left: 32px;"> 
+      <li> <strong><%= @recent.admin_workout_name %></strong> </li>
+      <br>
+      <li> <%= @recent.admin_workout.split("\n").join("<br />") %> </li>
+    </ul>
+    <br>
     <div class="content">
       <h2> Past Workouts </h2>
     </div>
-    <div style="text-indent: 16px;">
-      <% if admin? %>
+    <% if admin? %>
         <h3><a href= "/admin/create_entry">Add Workout</a></h3>
-      <% end %>
-    </div>
+    <% end %>
     <br></br>
     <table>
       <% AdminWorkout.all.each do |workout| %>
@@ -32,18 +34,20 @@
             <a href="/admin/workouts/<%= workout.id %>"><%=workout.created_at.to_formatted_s(:long_ordinal) %></a>
           </td>
           <td class="journal-cella"> <strong><%= workout.admin_workout_name%></strong> </td> 
-          <td class="journal-cellb"> <%= workout.admin_workout%> </td>
-          <td class="journal-cellb">
-            <% if admin? %>
-              <a href="/admin/workouts/<%= workout.id%>/edit">Edit</a>
-            <% end %>
-          </td>
-          <td class="journal-cellc"> 
-            <form class="" action="/admin/workouts/<%= workout.id%>" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" name="" value="Delete">
-            </form>
-          </td>
+          <% if admin? %>
+            <td class="journal-cellb"> <%= workout.admin_workout%> </td>
+            <td class="journal-cellb">
+                <a href="/admin/workouts/<%= workout.id%>/edit">Edit</a>
+            </td>
+            <td class="journal-cellc"> 
+              <form class="" action="/admin/workouts/<%= workout.id%>" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" name="" value="Delete">
+              </form>
+            </td>
+          <% else %>
+          <td class="journal-cellc"> <%= workout.admin_workout%> </td>
+          <% end %>
         </tr>
       <% end%>
     </table>

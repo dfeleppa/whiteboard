@@ -87,12 +87,12 @@
         end
     end
 
-    delete 'users/user_posts/:id' do
+    delete '/users/user_posts/:id' do
         set_user_post
         if owns_post?(@user_post)
             @user_post.destroy
             flash[:success] = "Journal entry deleted!"
-            redirect '/'
+            redirect 'users/journal'
         else
             flash[:danger] = "Error: You cannot delete another athlete's post!"
             redirect '/'
